@@ -25,9 +25,13 @@
 .layout .logo {
   width: 120px;
   height: 31px;
-  background: url('./Assets/logo.svg') no-repeat;
+  background: url('./assets/logo.svg') no-repeat;
   margin: 16px 24px 16px 0;
   float: left;
+}
+
+.ant-table-wrapper{
+  padding-top:100px;
 }
 
 @keyframes App-logo-spin {

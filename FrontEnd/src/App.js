@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import Uploader from './Components/uploader';
-import PayslipTable from './Components/payslipTable';
-import logo from './Assets/logo.svg';
+import Uploader from './components/uploader';
+import PayslipTable from './components/payslipTable';
 import './App.css';
 
 const { Header, Content, Footer } = Layout;
@@ -35,7 +34,7 @@ class App extends Component {
           
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-           MYOB coding excercise ©2018 Created by Yue Yin
+            MYOB CODING EXERCISE ©2018 Created by Yue Yin
         </Footer>
       </Layout>
     );

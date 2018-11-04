@@ -1,67 +1,65 @@
 import React, { Component } from 'react';
-import { Table, Divider, Tag } from 'antd';
-
+import { connect } from 'react-redux';
+import { Table, Tag } from 'antd';
+import CurrencyFormat from 'react-currency-format';
 
 class PayslipTable extends Component {
-    
-      render() {
-        const columns = [{
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-            render: text => <a href="javascript:;">{text}</a>,
-          }, {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
-          }, {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
-          }, {
-            title: 'Tags',
-            key: 'tags',
-            dataIndex: 'tags',
-            render: tags => (
-              <span>
-                {tags.map(tag => <Tag color="blue" key={tag}>{tag}</Tag>)}
-              </span>
-            ),
-          }, {
-            title: 'Action',
-            key: 'action',
-            render: (text, record) => (
-              <span>
-                <a href="javascript:;">Invite {record.name}</a>
-                <Divider type="vertical" />
-                <a href="javascript:;">Delete</a>
-              </span>
-            ),
-          }];
-          
-          const data = [{
-            key: '1',
-            name: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer'],
-          }, {
-            key: '2',
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-            tags: ['loser'],
-          }, {
-            key: '3',
-            name: 'Joe Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-            tags: ['cool', 'teacher'],
-          }];
-        return (
-            <Table columns={columns} dataSource={data} />
-        );
-      }
-}
+  componentDidMount() {
+    console.log(this.props.payslipTableData);
+  }
+  render() {
+    const { payslipTableData } = this.props;
+    const columns = [{
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: text => <a href="javascript:;">{text}</a>,
+    }, {
+      title: 'Pay period',
+      dataIndex: 'payPeriod',
+      key: 'payPeriod',
+      render: text => <Tag color="blue" key={text}>{text}</Tag>
+    }, {
+      title: 'Gross income',
+      key: 'grossIncome',
+      dataIndex: 'grossIncome',
+      render: value => <CurrencyFormat value={value} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+    },
+    {
+      title: 'Income tax',
+      dataIndex: 'incomeTax',
+      key: 'incomeTax',
+      render: value => <CurrencyFormat value={value} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+    },
+    {
+      title: 'Net income',
+      dataIndex: 'netIncome',
+      key: 'netIncome',
+      render: value => <CurrencyFormat value={value} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+    },
+    {
+      title: 'Super',
+      dataIndex: 'super',
+      key: 'super',
+      render: value => <CurrencyFormat value={value} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+    }
+    ];
 
-export default PayslipTable;
+    return (
+      <Table rowKey={record => record.name} columns={columns} dataSource={payslipTableData} />
+    );
+  }
+}
+const mapStateToProps = (state, props) => {
+  return {
+    payslipTableData: state.PayslipReducer.payslipTableData,
+  };
+};
+
+const mapDispatchToProps = {
+
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PayslipTable);
