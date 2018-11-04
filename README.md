@@ -22,6 +22,7 @@
             Run command `npm run test` 
      - ***Notice**
         The default path for Front End: http://localhost:3000
+        
         The default port for Back End is 8080, make sure this port not been used
     
 3. **Assumptions**
