@@ -35,7 +35,7 @@ class App extends Component {
           
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2018 Created by Ant UED
+           MYOB coding excercise ©2018 Created by Yue Yin
         </Footer>
       </Layout>
     );

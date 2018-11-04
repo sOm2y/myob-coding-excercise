@@ -21,6 +21,7 @@ export default ({ config, db }) => {
 			const parser = parse({delimiter: ','}, function(err, records){
 
 			});
+			parser.write(csvString);
 			parser.end()
 			// converter.fromString(csvString, function(err,result){
 			// 	if(err)return res.send("ERR")
