@@ -14,10 +14,12 @@
             Run command `yarn start`
     
     - **BackEnd**
-        1. To get local server runing
-        Run command `npm run dev` 
-        2. To get tests running
-        Run command `npm run test` 
+        1. To install Dependecies
+            Run command `npm install` 
+        2. To get local server runing
+            Run command `npm run dev` 
+        3. To get tests running
+            Run command `npm run test` 
     
 3. **Assumptions**
     - Assumed it needs a SPA and a Restful api server
